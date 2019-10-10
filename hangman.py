@@ -5,21 +5,18 @@ words_list = ["TOMATO", "AVOCADO", "SAMPHIRE", "ASPARAGUS", "BROCCOLI", "CHICKPE
 
 hidden_word = random.choice(words_list)
 
-#Introduce game - would they like to play?
+#Introduce game - would thy like to play?
 
 print ("HELLO, AND WELCOME TO HANGMAN!")
 name = input("What is your name? ").strip()
 print ("Hello, " + name + "!")
-print ("""The aim of the game is to guess the hidden word.
-You have 10 lives - each time you guess a letter that is not in the hidden word you lose a life.""")
-
+print ("The aim of the game is to guess the hidden word.\nYou have 10 lives - each time you guess a letter that is not in the hidden word you lose a life.")
 
 
 #Create game function
 
 def run_game():
-    print ("""
-Selecting hidden word.....""")
+    print ("\n\nSelecting hidden word.....\n\n")
         
     hidden_word = random.choice(words_list).upper()
     word_so_far = "*"*len(hidden_word)
