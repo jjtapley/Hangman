@@ -14,14 +14,22 @@ def get_hidden_word():
     print ("\n\nSelecting hidden word.....\n\n")
     return random.choice(words_list).upper()
 
-def end_game(hidden_word):
-    print ("You have run out of lives -- GAME OVER -- ")
-    print ("The hidden word was " + hidden_word + ". Better luck next time")
+def play_again():
     play_again = input ("Would you like to play again? (y/n) ").lower().strip()
     if play_again == "y":
         run_game()
     else:
         print ("Goodbye! Have a great day!")
+
+def end_game(hidden_word):
+    print ("You have run out of lives -- GAME OVER -- ")
+    print ("The hidden word was " + hidden_word + ". Better luck next time")
+    play_again()
+
+
+def win_game(hidden_word):
+    print("You won! You guessed the word " + hidden_word + "!")
+    play_again()
 
 #Create game function
 
@@ -54,12 +62,7 @@ def run_game():
             word_so_far = new_word_so_far
             print(word_so_far)
             if word_so_far == hidden_word:
-                print("You won! You guessed the word " + hidden_word + "!")
-                play_again = input ("Would you like to play again? (y/n) ").lower().strip()
-                if play_again == "y":
-                    run_game()
-                else:
-                    print ("Goodbye! Have a great day!")
+                win_game(hidden_word)
             else:
                 print ("Letters already guessed: " + str(total_letters_guessed))
         else:
