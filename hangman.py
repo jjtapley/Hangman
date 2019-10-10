@@ -1,11 +1,9 @@
 #create list of words that will be randomly selected for the game
 import random
 
-words_list = ["TOMATO", "AVOCADO", "SAMPHIRE", "ASPARAGUS", "BROCCOLI", "CHICKPEA", "SHALLOTS", "WATERMELON", "SWEETCORN"]
+words_list = ("TOMATO", "AVOCADO", "SAMPHIRE", "ASPARAGUS", "BROCCOLI", "CHICKPEA", "SHALLOTS", "WATERMELON", "SWEETCORN")
 
-hidden_word = random.choice(words_list)
-
-#Introduce game - would thy like to play?
+#Introduce game - would they like to play?
 def introduction():
     print ("HELLO, AND WELCOME TO HANGMAN!")
     name = input("What is your name? ").strip()
@@ -16,6 +14,14 @@ def get_hidden_word():
     print ("\n\nSelecting hidden word.....\n\n")
     return random.choice(words_list).upper()
 
+def end_game(hidden_word):
+    print ("You have run out of lives -- GAME OVER -- ")
+    print ("The hidden word was " + hidden_word + ". Better luck next time")
+    play_again = input ("Would you like to play again? (y/n) ").lower().strip()
+    if play_again == "y":
+        run_game()
+    else:
+        print ("Goodbye! Have a great day!")
 
 #Create game function
 
@@ -63,15 +69,7 @@ def run_game():
             print ("Letters already guessed: " + str(total_letters_guessed))
 
         if lives_lost >=10:
-            print ("You have run out of lives -- GAME OVER -- ")
-            print ("The hidden word was " + hidden_word + ". Better luck next time")
-            play_again = input ("Would you like to play again? (y/n) ").lower().strip()
-            if play_again == "y":
-                run_game()
-            else:
-                print ("Goodbye! Have a great day!")
-
-
+            end_game(hidden_word)
 
 run_game()
 
