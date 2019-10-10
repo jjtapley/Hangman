@@ -31,6 +31,11 @@ def win_game(hidden_word):
     print("You won! You guessed the word " + hidden_word + "!")
     play_again()
 
+def lose_life(letter_guessed, lives_lost, total_letters_guessed):
+    print (letter_guessed + " is not in the hidden word - you lose a life!")
+    print ("Lives left: " + str(10-int(lives_lost)))
+    print ("Letters already guessed: " + str(total_letters_guessed))
+
 #Create game function
 
 def run_game():
@@ -66,11 +71,8 @@ def run_game():
             else:
                 print ("Letters already guessed: " + str(total_letters_guessed))
         else:
-            print (letter_guessed + " is not in the hidden word - you lose a life!")
             lives_lost += 1
-            print ("Lives left: " + str(10-int(lives_lost)))
-            print ("Letters already guessed: " + str(total_letters_guessed))
-
+            lose_life(letter_guessed, lives_lost, total_letters_guessed)
         if lives_lost >=10:
             end_game(hidden_word)
 
