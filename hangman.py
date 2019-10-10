@@ -12,13 +12,18 @@ def introduction():
     print ("Hello, " + name + "!")
     print ("The aim of the game is to guess the hidden word.\nYou have 10 lives - each time you guess a letter that is not in the hidden word you lose a life.")
 
+def get_hidden_word():
+    print ("\n\nSelecting hidden word.....\n\n")
+    return random.choice(words_list).upper()
+
+
 #Create game function
 
 def run_game():
     introduction()
-    print ("\n\nSelecting hidden word.....\n\n")
-        
-    hidden_word = random.choice(words_list).upper()
+    hidden_word = get_hidden_word()
+
+
     word_so_far = "*"*len(hidden_word)
     print(word_so_far)
     lives_lost = 0
