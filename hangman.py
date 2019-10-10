@@ -28,14 +28,15 @@ def end_game(hidden_word):
 
 
 def win_game(hidden_word):
-    print("You won! You guessed the word " + hidden_word + "!")
+    print("\nYou won! You guessed the word " + hidden_word + "!")
     play_again()
 
-def lose_life(letter_guessed, lives_lost, total_letters_guessed):
-    print (letter_guessed + " is not in the hidden word - you lose a life!")
+def lose_life(letter_guessed, lives_lost, total_letters_guessed, word_so_far):
+    print ("\n"+letter_guessed + " is not in the hidden word - you lose a life!")
     lives_lost += 1
     print ("Lives left: " + str(10-int(lives_lost)))
     print ("Letters already guessed: " + str(total_letters_guessed))
+    print(word_so_far)
     return lives_lost
 
 #Create game function
@@ -43,7 +44,6 @@ def lose_life(letter_guessed, lives_lost, total_letters_guessed):
 def run_game():
     introduction()
     hidden_word = get_hidden_word()
-
 
     word_so_far = "*"*len(hidden_word)
     print(word_so_far)
@@ -56,10 +56,10 @@ def run_game():
 
 #Make sure guess is a string of 1 
         while len(letter_guessed)>1 or len(letter_guessed)<1 or letter_guessed.isdigit():
-             letter_guessed = input ("Please enter one letter from the alphabet: ")
+             letter_guessed = input ("\nPlease enter one letter from the alphabet: ")
         total_letters_guessed.append(letter_guessed)
         if letter_guessed in hidden_word:
-            print ("Well done! '" + letter_guessed + "' is in the hidden word!")
+            print ("\nWell done! '" + letter_guessed + "' is in the hidden word!")
             new_word_so_far = ""
             for index, char in enumerate(hidden_word):
                 if char == letter_guessed:
@@ -73,7 +73,7 @@ def run_game():
             else:
                 print ("Letters already guessed: " + str(total_letters_guessed))
         else:
-            lives_lost = lose_life(letter_guessed, lives_lost, total_letters_guessed)
+            lives_lost = lose_life(letter_guessed, lives_lost, total_letters_guessed, word_so_far)
         if lives_lost >=10:
             end_game(hidden_word)
 
