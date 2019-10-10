@@ -1,7 +1,7 @@
 #create list of words that will be randomly selected for the game
 import random
 
-words_list = ["TOMATO", "AVOCADO", "SAMPHIRE", "ASPARAGUS", "BROCCOLI", "CHICKPEA", "SHALLOTS", "WATERMELON", "BOK CHOI"]
+words_list = ["TOMATO", "AVOCADO", "SAMPHIRE", "ASPARAGUS", "BROCCOLI", "CHICKPEA", "SHALLOTS", "WATERMELON", "SWEETCORN"]
 
 hidden_word = random.choice(words_list)
 
